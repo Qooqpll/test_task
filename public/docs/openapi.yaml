@@ -1,0 +1,657 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:8000'
+paths:
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/tokens/create:
+    post:
+      summary: ''
+      operationId: postApiTokensCreate
+      description: ''
+      parameters:
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/csrf-token:
+    get:
+      summary: ''
+      operationId: getApiCsrfToken
+      description: ''
+      parameters:
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  token: null
+                properties:
+                  token:
+                    type: string
+                    example: null
+      tags:
+        - Endpoints
+      security: []
+  /api/login:
+    post:
+      summary: ''
+      operationId: postApiLogin
+      description: ''
+      parameters:
+        -
+          in: query
+          name: name
+          description: 'The name of the user'
+          example: test
+          required: true
+          schema:
+            type: string
+            description: 'The name of the user'
+            example: test
+        -
+          in: query
+          name: password
+          description: 'The password of the user'
+          example: 123
+          required: true
+          schema:
+            type: string
+            description: 'The password of the user'
+            example: 123
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/register:
+    post:
+      summary: ''
+      operationId: postApiRegister
+      description: ''
+      parameters:
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone_number:
+                  type: string
+                  description: ''
+                  example: fugit
+                name:
+                  type: string
+                  description: ''
+                  example: nemo
+                password:
+                  type: string
+                  description: ''
+                  example: 'sk{K/.YP'
+              required:
+                - phone_number
+                - name
+                - password
+      security: []
+  /api/specialist:
+    get:
+      summary: ''
+      operationId: getApiSpecialist
+      description: ''
+      parameters:
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiSpecialist
+      description: ''
+      parameters:
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: dolor
+                description:
+                  type: string
+                  description: ''
+                  example: 'Asperiores autem est repellat blanditiis culpa voluptatem aut molestiae.'
+                schedule:
+                  type: object
+                  description: ''
+                  example: []
+                  properties:
+                    day:
+                      type: string
+                      description: ''
+                      example: tempora
+                    start:
+                      type: string
+                      description: 'Must be a valid date in the format <code>H:i</code>.'
+                      example: '10:54'
+                    end:
+                      type: string
+                      description: 'Must be a valid date in the format <code>H:i</code>.'
+                      example: '10:54'
+              required:
+                - name
+                - description
+      security: []
+  '/api/specialist/{id}':
+    get:
+      summary: ''
+      operationId: getApiSpecialistId
+      description: ''
+      parameters:
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiSpecialistId
+      description: ''
+      parameters:
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: et
+                description:
+                  type: string
+                  description: ''
+                  example: 'Adipisci non asperiores nesciunt ex.'
+                schedule:
+                  type: object
+                  description: ''
+                  example: []
+                  properties:
+                    day:
+                      type: string
+                      description: ''
+                      example: expedita
+                    start:
+                      type: string
+                      description: 'Must be a valid date in the format <code>H:i</code>.'
+                      example: '10:54'
+                    end:
+                      type: string
+                      description: 'Must be a valid date in the format <code>H:i</code>.'
+                      example: '10:54'
+              required:
+                - name
+                - description
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiSpecialistId
+      description: ''
+      parameters:
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the specialist.'
+        example: 9
+        required: true
+        schema:
+          type: integer
+  /api/client:
+    get:
+      summary: ''
+      operationId: getApiClient
+      description: ''
+      parameters:
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                per_page:
+                  type: integer
+                  description: 'The per page of the page'
+                  example: 10
+              required:
+                - per_page
+      security: []
+  '/api/client/{user_id}':
+    get:
+      summary: ''
+      operationId: getApiClientUser_id
+      description: ''
+      parameters:
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiClientUser_id
+      description: ''
+      parameters:
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: nesciunt
+                phone_number:
+                  type: string
+                  description: ''
+                  example: saepe
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiClientUser_id
+      description: ''
+      parameters:
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/appointment:
+    get:
+      summary: ''
+      operationId: getApiAppointment
+      description: ''
+      parameters:
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                per_page:
+                  type: integer
+                  description: 'The per page of the page'
+                  example: 10
+              required:
+                - per_page
+      security: []
+    post:
+      summary: ''
+      operationId: postApiAppointment
+      description: ''
+      parameters:
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                client_id:
+                  type: integer
+                  description: ''
+                  example: 8
+                specialist_id:
+                  type: integer
+                  description: ''
+                  example: 5
+                date:
+                  type: string
+                  description: 'Must be a valid date in the format <code>d/m/Y</code>.'
+                  example: 19/08/2023
+                time:
+                  type: string
+                  description: 'Must be a valid date in the format <code>H:i</code>.'
+                  example: '10:54'
+              required:
+                - client_id
+                - specialist_id
+      security: []
+  '/api/appointment/{id}':
+    get:
+      summary: ''
+      operationId: getApiAppointmentId
+      description: ''
+      parameters:
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiAppointmentId
+      description: ''
+      parameters:
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                client_id:
+                  type: integer
+                  description: ''
+                  example: 9
+                specialist_id:
+                  type: integer
+                  description: ''
+                  example: 16
+                date:
+                  type: string
+                  description: 'Must be a valid date in the format <code>d/m/Y</code>.'
+                  example: 19/08/2023
+                time:
+                  type: string
+                  description: 'Must be a valid date in the format <code>H:i</code>.'
+                  example: '10:54'
+              required:
+                - client_id
+                - specialist_id
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiAppointmentId
+      description: ''
+      parameters:
+        -
+          in: header
+          name: X-CSRF-TOKEN
+          description: ''
+          example: test
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the appointment.'
+        example: 2
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Endpoints
+    description: ''
